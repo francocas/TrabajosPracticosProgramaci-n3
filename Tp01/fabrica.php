@@ -45,7 +45,35 @@ class Fabrica
 
     private function EliminarEmpleadosRepetidos()
     {
-        
+        /*$i = 0;
+        $j = 0;
+        for($i = 0; $i < count($this->_empleados); $i ++)
+        {
+            for($j = $i; $j < count($this->_empleados);$j ++)
+            {
+                if($j == $i)
+                {
+                    continue;
+                }
+                if($this->_empleados[$i] == $this->_empleados[$j])
+                {
+                    $this->EliminarEmpleado($this->_empleados[$j]);
+                    break;
+                }
+            }
+        }
+        */
+        $this->_empleados = array_unique($this->_empleados);
+    }
+
+    public function __toString()
+    {
+        $retorno = "Razon Social: ".$this->_razonSocial." - ";
+        for($i = 0; $i < count($this->_empleados); $i++)
+        {
+            $retorno = $retorno.$this->_empleados[$i];
+        }
+        return $retorno;
     }
 }
 ?>
