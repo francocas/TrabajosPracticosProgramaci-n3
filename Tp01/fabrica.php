@@ -71,7 +71,7 @@ class Fabrica
         $retorno = "Razon Social: ".$this->_razonSocial." - ";
         for($i = 0; $i < count($this->_empleados); $i++)
         {
-            $retorno = $retorno.$this->_empleados[$i];
+            $retorno = $retorno."<br>".$this->_empleados[$i];
         }
         return $retorno;
     }
