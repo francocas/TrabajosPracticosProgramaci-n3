@@ -26,6 +26,7 @@ class Fabrica
                 unset($this->_empleados[$i]);
             }
         }
+        $this->_empleados = array_values($this->_empleados);
     }
 
     function testEmpleados()
@@ -70,12 +71,9 @@ class Fabrica
     {
         $retorno = "Razon Social: ".$this->_razonSocial." - ";
         //echo(var_dump($this->_empleados));
-        for($i = 0; $i <= count($this->_empleados); $i++)
-        {
-            if(isset($this->_empleados[$i]))
-            {
-                $retorno = $retorno."<br>".$this->_empleados[$i];               
-            }            
+        for($i = 0; $i < count($this->_empleados); $i++)
+        {           
+                $retorno = $retorno."<br>".$this->_empleados[$i];                                             
         }
         return $retorno;
     }

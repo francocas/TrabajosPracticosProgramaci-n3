@@ -12,6 +12,7 @@ $fabrica->AgregarEmpleado($empleado1);
 $fabrica->AgregarEmpleado($empleado2);
 $fabrica->AgregarEmpleado($empleado3);
 $fabrica->AgregarEmpleado($empleado1);
+echo($fabrica);
 //echo($fabrica->testEmpleados());
 $fabrica->EliminarEmpleado($empleado2);
 //echo($fabrica->testEmpleados());
