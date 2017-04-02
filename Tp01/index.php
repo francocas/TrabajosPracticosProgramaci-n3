@@ -13,10 +13,11 @@ $fabrica->AgregarEmpleado($empleado2);
 $fabrica->AgregarEmpleado($empleado3);
 $fabrica->AgregarEmpleado($empleado1);
 //echo($fabrica->testEmpleados());
-//$fabrica->EliminarEmpleado($empleado1);
+$fabrica->EliminarEmpleado($empleado2);
 //echo($fabrica->testEmpleados());
 
 echo($fabrica->CalcularSueldos());
 echo("<br><br><br><br>");
 echo($fabrica);
+
 ?>

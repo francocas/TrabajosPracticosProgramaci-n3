@@ -69,9 +69,13 @@ class Fabrica
     public function __toString()
     {
         $retorno = "Razon Social: ".$this->_razonSocial." - ";
-        for($i = 0; $i < count($this->_empleados); $i++)
+        //echo(var_dump($this->_empleados));
+        for($i = 0; $i <= count($this->_empleados); $i++)
         {
-            $retorno = $retorno."<br>".$this->_empleados[$i];
+            if(isset($this->_empleados[$i]))
+            {
+                $retorno = $retorno."<br>".$this->_empleados[$i];               
+            }            
         }
         return $retorno;
     }
