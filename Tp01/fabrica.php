@@ -17,16 +17,38 @@ class Fabrica
         $this->EliminarEmpleadosRepetidos();
     }
     
-    function EliminarEmpleado($Empleado)
+    public function getEmpleado($id)
     {
-        for($i = 0;$i < count($this->_empleados); $i++)
+        for($i = 0;$i <= count($this->_empleados); $i++)
+        {
+            if(isset($this->_empleados[$i]))
+            {
+                if($this->_empleados[$i]->getLegajo() == $id)
+                {
+                    return $i;
+                    break;
+                }
+            }
+        }
+        return -1;
+    }
+
+    function EliminarEmpleado($i)
+    {
+        /*for($i = 0;$i < count($this->_empleados); $i++)
         {
             if($this->_empleados[$i]->getLegajo() == $Empleado->getLegajo())
             {
                 unset($this->_empleados[$i]);
+                break;
             }
         }
-        $this->_empleados = array_values($this->_empleados);
+        $this->_empleados = array_values($this->_empleados);*/
+        if($i != -1)
+        {
+            unset($this->_empleados[$i]);
+        }
+        
     }
 
     function testEmpleados()
@@ -39,7 +61,10 @@ class Fabrica
         $acumulador = 0;
         foreach($this->_empleados as $ayuda)
         {
+            if(isset($ayuda))  
+            {
             $acumulador+=$ayuda->getSueldo();
+            }
         }
         return $acumulador;
     }
@@ -70,12 +95,53 @@ class Fabrica
     public function __toString()
     {
         $retorno = "Razon Social: ".$this->_razonSocial." - ";
-        //echo(var_dump($this->_empleados));
-        for($i = 0; $i < count($this->_empleados); $i++)
-        {           
-                $retorno = $retorno."<br>".$this->_empleados[$i];                                             
+        for($i = 0; $i <= count($this->_empleados); $i++)
+        {      
+            if(isset($this->_empleados[$i]))  
+            {
+                $retorno = $retorno."<br>".$this->_empleados[$i];
+            }   
+                                                             
         }
         return $retorno;
+    }
+
+    public function GuardarFabrica()
+    {
+        $archivo = fopen("Fabrica.txt","w");
+              for($i = 0; $i <= count($this->_empleados); $i++)
+        {      
+            if(isset($this->_empleados[$i]))  
+            {
+                fwrite($archivo,$this->_empleados[$i].PHP_EOL);
+                //fwrite($archivo, );
+            }   
+        }
+        
+        fclose($archivo);
+    }
+
+    public function TraerEmpleado()
+    {
+         $contador = 1;
+        $archivo = fopen("Fabrica.txt","r");
+        while(!feof($archivo))
+        {    
+          
+           $linea = fgets($archivo);
+           $emp = explode("-",$linea);
+           $empleado = new Empleado($emp[0],$emp[1],$emp[2],$emp[3],$emp[4],$emp[5]);
+          //echo("<br>");
+          // var_dump($emp);
+           $this->AgregarEmpleado($empleado);
+
+           if(PHP_EOL)
+           {
+               $contador = $contador + 1;
+           }
+        }
+        echo $contador;
+        fclose($archivo); 
     }
 }
 ?>

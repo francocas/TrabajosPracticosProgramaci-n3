@@ -41,7 +41,7 @@ abstract class Persona
 
     public function __toString()
     {
-        return $this->_apellido." - ".$this->_nombre." - ".$this->_dni." - ".$this->_sexo;
+        return $this->_apellido."-".$this->_nombre."-".$this->_dni."-".$this->_sexo;
     }
 
 
