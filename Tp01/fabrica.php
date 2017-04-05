@@ -117,7 +117,7 @@ class Fabrica
                 //fwrite($archivo, );
             }   
         }
-        
+        fwrite($archivo,"*");
         fclose($archivo);
     }
 
@@ -135,10 +135,11 @@ class Fabrica
           // var_dump($emp);
            $this->AgregarEmpleado($empleado);
 
-           if(PHP_EOL)
+           if(fgetc($archivo) == "*")
            {
-               $contador = $contador + 1;
+               break;
            }
+
         }
         echo $contador;
         fclose($archivo); 
