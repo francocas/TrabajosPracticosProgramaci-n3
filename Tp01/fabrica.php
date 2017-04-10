@@ -15,6 +15,7 @@ class Fabrica
     {
         array_push($this->_empleados,$Empleado);
         $this->EliminarEmpleadosRepetidos();
+        $this->_empleados = array_values($this->_empleados);
     }
     
     public function getEmpleado($id)
@@ -47,6 +48,7 @@ class Fabrica
         if($i != -1)
         {
             unset($this->_empleados[$i]);
+            
         }
         
     }
@@ -95,7 +97,7 @@ class Fabrica
     public function __toString()
     {
         $retorno = "Razon Social: ".$this->_razonSocial." - ";
-        for($i = 0; $i <= count($this->_empleados); $i++)
+        for($i = 0; $i < count($this->_empleados); $i++)
         {      
             if(isset($this->_empleados[$i]))  
             {
@@ -117,29 +119,31 @@ class Fabrica
                 //fwrite($archivo, );
             }   
         }
-        fwrite($archivo,"*");
+        //fwrite($archivo,"*");
         fclose($archivo);
     }
 
     public function TraerEmpleado()
     {
-         $contador = 1;
+         $contador = 0;
         $archivo = fopen("Fabrica.txt","r");
         while(!feof($archivo))
         {    
-          
-           $linea = fgets($archivo);
-           $emp = explode("-",$linea);
-           $empleado = new Empleado($emp[0],$emp[1],$emp[2],$emp[3],$emp[4],$emp[5]);
-          //echo("<br>");
-          // var_dump($emp);
-           $this->AgregarEmpleado($empleado);
+            
+            $linea = fgetss($archivo);
+            if($linea != NULL)
+            {
+            $emp = explode("-",$linea);
+            $empleado = new Empleado($emp[0],$emp[1],$emp[2],$emp[3],$emp[4],$emp[5]);
+           //echo("<br>");
+           // var_dump($emp);
+            $this->AgregarEmpleado($empleado);
 
-           if(fgetc($archivo) == "*")
-           {
-               break;
-           }
-
+            /*if(fgetc($archivo) == "*")
+            {
+                break;
+            }*/
+            }
         }
         echo $contador;
         fclose($archivo); 
