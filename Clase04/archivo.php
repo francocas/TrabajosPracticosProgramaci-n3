@@ -7,7 +7,7 @@ $target_fileEncontrado;
 if(file_exists($target_file))
 {
     copy($target_file , $target. date("Y-m-d-h-i-s"). $file);
-    move_uploaded_file($_FILES["btnGuardarArchivo"]["tmp_name"], "uploads/". $_FILES["btnGuardarArchivo"]["name"]);   
+    move_uploaded_file($_FILES["btnGuardarArchivo"]["tmp_name"], "uploads/". $_FILES["btnGuardarArchivo"]["name"]);
 }
 else 
 {
