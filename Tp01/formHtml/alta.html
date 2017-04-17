@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../ManejoDeEmpleados/administracion.php" method="POST">
+    <form action="../ManejoDeEmpleados/administracion.php" method="POST" enctype="multipart/form-data">
         <input type="text" id="Apellido" placeholder="Ingrese Apellido" name= "Apellido">
         <br>
         <input type="text" id="Nombre" placeholder="Ingrese Nombre" name= "Nombre">
@@ -22,6 +22,8 @@
         <input type="Radio" id="SexoF" name="Sexo" placeholder="Ingrese Sexo" value="F">
         <label for="SexoM">M</label>      
         <input type="Radio" id="SexoM" name="Sexo" placeholder="Ingrese Sexo" value="M" >
+        <br>
+        <input type="file" name="img" id="img">
         <br>
         <input type="submit" id="btnEnviar"  value="Enviar">
         

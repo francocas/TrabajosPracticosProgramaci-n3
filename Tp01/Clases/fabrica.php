@@ -90,9 +90,9 @@ class Fabrica
         return $retorno;
     }
 
-    public function GuardarFabrica()
+    public function GuardarFabrica($hola)
     {
-        $archivo = fopen("../ArchivosDeTexto/Fabrica.txt","w");
+        $archivo = fopen($hola,"w");
               for($i = 0; $i <= count($this->_empleados); $i++)
         {      
             if(isset($this->_empleados[$i]))  
@@ -111,7 +111,7 @@ class Fabrica
         $archivo = fopen("../ArchivosDeTexto/Empleados.txt","r");
         while(!feof($archivo))
         {                
-            $linea = fgetss($archivo);
+            $linea = fgets($archivo);
             if($linea != NULL)
             {
             $emp = explode("-",$linea);
