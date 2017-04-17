@@ -1,5 +1,5 @@
 <?php 
-include("fabrica.php");
+include_once("Clases/fabrica.php");
 
 $empleado1 = new Empleado("Perez","Pepito",40893168,"M",123564,14878.45);
 $empleado2 = new Empleado("Laurent","Fiora",48651892,"F",123456,17836.85);
