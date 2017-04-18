@@ -36,19 +36,9 @@ class Fabrica
 
     function EliminarEmpleado($i)
     {
-        /*for($i = 0;$i < count($this->_empleados); $i++)
-        {
-            if($this->_empleados[$i]->getLegajo() == $Empleado->getLegajo())
-            {
-                unset($this->_empleados[$i]);
-                break;
-            }
-        }
-        $this->_empleados = array_values($this->_empleados);*/
         if($i != -1)
         {
-            unset($this->_empleados[$i]);
-            
+            unset($this->_empleados[$i]);         
         }
         
     }
@@ -92,17 +82,15 @@ class Fabrica
 
     public function GuardarFabrica($hola)
     {
-        $archivo = fopen($hola,"w");
-              for($i = 0; $i <= count($this->_empleados); $i++)
-        {      
-            if(isset($this->_empleados[$i]))  
+        $f = fopen("../ArchivosDeTexto/Empleados.txt", "w");
+        for ($i = 0; $i < count($this->_empleados[$i]); $i++)
+        {
+            if(isset($this->_empleados[$i]))
             {
-                fwrite($archivo,$this->_empleados[$i].PHP_EOL);
-                //fwrite($archivo, );
-            }   
+                $fwrite = fwrite($f, $this->_empleados[$i]);
+            }
         }
-        //fwrite($archivo,"*");
-        fclose($archivo);
+        fclose($f);
     }
 
     public function TraerEmpleado()
@@ -115,7 +103,7 @@ class Fabrica
             if($linea != NULL)
             {
             $emp = explode("-",$linea);
-            $empleado = new Empleado($emp[0],$emp[1],$emp[2],$emp[3],$emp[4],$emp[5]);
+            $empleado = new Empleado($emp[0],$emp[1],$emp[2],$emp[3],$emp[4],$emp[5],$emp[6]);
             $this->AgregarEmpleado($empleado);
             }
         }

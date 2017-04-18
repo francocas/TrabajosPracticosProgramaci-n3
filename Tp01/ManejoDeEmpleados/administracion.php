@@ -23,5 +23,5 @@ else
 {
     echo("Error");
 }
-echo($empleadoNuevo);
+
 ?>  

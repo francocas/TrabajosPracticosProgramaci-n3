@@ -30,7 +30,7 @@ class Empleado extends Persona
 
     public function __toString()
     {
-        return parent::__toString()."-".$this->_legajo."-".$this->_sueldo."<img src=' ".$this->_pathFoto."' alt=''";
+        return parent::__toString()."-".$this->_legajo."-".$this->_sueldo."<img src=' ".$this->_pathFoto."' alt=''"."<br>";
     }
 }
 ?>
