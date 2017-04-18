@@ -73,21 +73,23 @@ class Fabrica
         {      
             if(isset($this->_empleados[$i]))  
             {
-                $retorno = $retorno."<br>".$this->_empleados[$i]."<br>";
+                $retorno = $retorno."<br>".$this->_empleados[$i];
             }   
                                                              
         }
         return $retorno;
     }
 
-    public function GuardarFabrica($hola)
+
+    public function GuardarFabrica($path)
     {
-        $f = fopen($hola, "w");
-        for ($i = 0; $i <= count($this->_empleados) ; $i++)
+        $f = fopen($path,"w");
+        for ($i = 0;$i <= count($this->_empleados[$i]);$i++)
         {
             if(isset($this->_empleados[$i]))
             {
-                fwrite($f, $this->_empleados[$i]."\n");
+                $fwrite = fwrite($f, $this->_empleados[$i]);
+
             }
         }
         fclose($f);
@@ -96,7 +98,7 @@ class Fabrica
     public function TraerEmpleado($path)
     {
          $contador = 0;
-        $archivo = fopen($path, "r");
+        $archivo = fopen($path,"r");
         while(!feof($archivo))
         {                
             $linea = fgets($archivo);
@@ -108,6 +110,6 @@ class Fabrica
             }
         }
         fclose($archivo); 
-    }
+    }    
 }
 ?>
