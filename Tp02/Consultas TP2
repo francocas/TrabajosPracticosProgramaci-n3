@@ -1,0 +1,66 @@
+Consulta 1
+SELECT * FROM `productos` ORDER BY pNombre ASC
+
+Consulta 2
+SELECT `Numero`, `Nombre`, `Domicilio`, `Localidad` FROM `proveedores` WHERE `Localidad` = "Quilmes"
+
+Consulta 3	
+
+SELECT `Numero`, `pNumero`, `Cantidad` FROM `envios` WHERE `Cantidad` >= 200 and `Cantidad` <= 300
+
+Consulta 4
+
+SELECT SUM(`Cantidad`) FROM `envios` WHERE 1
+
+Consulta 5
+
+SELECT * FROM `envios` LIMIT 3
+
+Consulta 6
+
+SELECT prov.Nombre, env.Numero, prod.pNumero, prod.pNombre FROM proveedores AS prov, envios AS env, productos AS prod
+WHERE prov.Numero = env.Numero AND env.pNumero = prod.pNumero
+
+Consulta 7
+
+SELECT prod.pNombre ,prod.Precio*env.Cantidad FROM envios AS env, productos AS prod WHERE env.pNumero = prod.pNumero
+
+Consulta 8
+
+SELECT `Cantidad` FROM `envios` WHERE `Numero` = 102 AND `pNumero` = 1
+
+Consulta 9
+
+SELECT prov.Localidad, env.Numero, env.pNumero FROM proveedores AS prov, envios AS env WHERE env.Numero = prov.Numero AND prov.Localidad = "Avellaneda"
+
+SELECT env.pNumero FROM proveedores AS prov, envios AS env WHERE env.Numero = prov.Numero AND prov.Localidad = "Avellaneda"
+
+Consulta 10
+
+SELECT prov.Domicilio,prov.Localidad FROM proveedores AS prov WHERE prov.Nombre LIKE '%i%'
+
+Consulta 11
+
+INSERT INTO `productos`( `pNombre`, `Precio`, `Tamaño`) VALUES ("Chocolate",25.35,"Chico")
+
+Consulta 12
+
+INSERT INTO `proveedores`() VALUES ()
+
+Consulta 13
+
+INSERT INTO `proveedores`(`Numero`, `Nombre`, `Localidad`) VALUES (107,"Rosales","La plata")
+
+Consulta 14
+
+UPDATE `productos` SET `Precio`=97.50 WHERE productos.Tamaño = "Grande"
+
+Consulta 15
+
+UPDATE productos AS prod, envios AS env SET Tamaño= 'Mediano' WHERE prod.Tamaño ='Chico' AND env.Cantidad >= 300 AND env.pNumero = prod.pNumero;
+
+Consulta 16
+
+DELETE FROM `productos` WHERE pNumero = 1
+
+Consulta 17	
