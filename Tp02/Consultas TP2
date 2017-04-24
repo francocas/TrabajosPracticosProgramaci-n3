@@ -34,7 +34,7 @@ Consulta 9
 SELECT prov.Localidad, env.Numero, env.pNumero FROM proveedores AS prov, envios AS env WHERE env.Numero = prov.Numero AND prov.Localidad = "Avellaneda"
 
 SELECT env.pNumero FROM proveedores AS prov, envios AS env WHERE env.Numero = prov.Numero AND prov.Localidad = "Avellaneda"
-
+	
 Consulta 10
 
 SELECT prov.Domicilio,prov.Localidad FROM proveedores AS prov WHERE prov.Nombre LIKE '%i%'
@@ -57,7 +57,7 @@ UPDATE `productos` SET `Precio`=97.50 WHERE productos.Tamaño = "Grande"
 
 Consulta 15
 
-UPDATE productos AS prod, envios AS env SET Tamaño= 'Mediano' WHERE prod.Tamaño ='Chico' AND env.Cantidad >= 300 AND env.pNumero = prod.pNumero;
+UPDATE productos AS prod, envios AS env SET Tamaño= 'Mediano' WHERE prod.Tamaño ='Chico' AND env.Cantidad >=	 300 AND env.pNumero = prod.pNumero;
 
 Consulta 16
 
