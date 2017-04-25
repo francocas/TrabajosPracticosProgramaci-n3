@@ -1,4 +1,4 @@
-Consulta 1
+﻿Consulta 1
 SELECT * FROM `productos` ORDER BY pNombre ASC
 
 Consulta 2
